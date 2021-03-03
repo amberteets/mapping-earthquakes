@@ -7,3 +7,4 @@ Visually show the differences between magnitudes of earthquakes across the globe
 ## Results
 
 ## Summary
+
