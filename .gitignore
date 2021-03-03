@@ -1,0 +1,6 @@
+# Ignore config files
+config.js
+
+# .DS_Store
+.DS_Store
+*/.DS_Store
