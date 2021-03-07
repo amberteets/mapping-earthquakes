@@ -1,10 +1,9 @@
 # Mapping Earthquakes
 
-## Background & Purpose
+### Purpose
 
 Visually show the differences between magnitudes of earthquakes across the globe over the previous seven days. 
 
-## Results
+### Resources
 
-## Summary
-
+- Languages: JavaScript, HTML, CSS
