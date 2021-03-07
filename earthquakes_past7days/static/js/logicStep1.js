@@ -1,5 +1,5 @@
 // Add console.log to check to see if our code is working.
-console.log("working-13.5.6");
+console.log("working-Step 1");
 
 // ________________________________________________________________________________________
 // We create the tile layer that will be the background of our map.
@@ -18,21 +18,21 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
 // Create base layer that holds both maps
 let baseMaps = {
   "Streets": streets,
-  "Satellite Streets": satStreets
+  "Satellite": satStreets
 };
 
-// Create the map object with center at Toronto.
+// Create the map object (center of US)
 let map = L.map('mapid', {
-  center: [43.7, -79.3],
-  zoom: 11,
+  center: [39.5, -98.5],
+  zoom: 3,
   layers: [streets]
 });
 
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 
-// Accessing the Toronto neighborhoods GeoJSON URL.
-let torontoHoods = "https://raw.githubusercontent.com/amberteets/mapping-earthquakes/Mapping_GeoJSON_Polygons/torontoNeighborhoods.json";
+// Accessing earthquake data
+let earthquakeData = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Custom style
 let myStyle = {
@@ -42,13 +42,8 @@ let myStyle = {
 };
 
 // Grabbing GeoJSON data
-d3.json(torontoHoods).then(function(data) {
+d3.json(earthquakeData).then(function(data) {
   console.log(data);
   // Add to map
-  L.geoJSON(data, {
-    style: myStyle,
-    onEachFeature: function(feature, layer) {
-      layer.bindPopup("<h2>" + feature.properties.AREA_NAME + "</h2>")
-    }
-  }).addTo(map);
+  L.geoJSON(data).addTo(map);
 });
